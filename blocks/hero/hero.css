@@ -79,7 +79,7 @@
    max-width includes the gutter, aligning content with the nav/sections
    (container edges 440–1560, content inset by the 48px gutter). */
 /* stylelint-disable-next-line no-descending-specificity */
-.hero.block > div:last-child {
+.hero.block > div:last-of-type {
   box-sizing: border-box;
   position: relative;
   z-index: 1;
@@ -90,7 +90,7 @@
 }
 
 /* stylelint-disable-next-line no-descending-specificity */
-.hero.block > div:last-child > div {
+.hero.block > div:last-of-type > div {
   display: block;
   max-width: 620px;
 }
@@ -194,7 +194,7 @@
   text-align: center;
 }
 
-.hero.block.no-image > div:last-child > div {
+.hero.block.no-image > div:last-of-type > div {
   max-width: var(--content-narrow);
   margin-inline: auto;
 }
@@ -240,6 +240,33 @@
   color: var(--cream);
 }
 
+/* Promo strip: optional trailing text row, overlaid along the bottom edge on a
+   dark translucent band. Extra bottom padding keeps the copy clear of it. */
+.hero.block.has-strip {
+  padding-bottom: calc(var(--section-y) + 2.75rem);
+}
+
+.hero.block .hero-strip {
+  position: absolute;
+  z-index: 2;
+  inset: auto 0 0;
+  padding: 0.75rem var(--gutter);
+  background-color: oklch(16% 0.02 45deg / 65%);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.hero.block .hero-strip a:any-link {
+  color: inherit;
+}
+
 /* Desktop */
 @media (width >= 900px) {
   .hero.block {
@@ -247,7 +274,7 @@
     padding: calc(var(--nav-height) + 6rem) 0 3.4rem;
   }
 
-  .hero.block > div:last-child {
+  .hero.block > div:last-of-type {
     padding: 0 48px;
   }
 }

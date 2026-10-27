@@ -139,9 +139,13 @@
   }
 }
 
-/* Desktop: 3-up */
+/* Desktop: 3-up; a pair of cards stays 2-up so it spans the full width */
 @media (width >= 900px) {
   .cards-product > ul {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .cards-product > ul:has(> li:nth-child(2):last-child) {
+    grid-template-columns: repeat(2, 1fr);
   }
 }

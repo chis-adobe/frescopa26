@@ -68,3 +68,44 @@
   line-height: 1.6;
   color: var(--ink-soft);
 }
+
+/* Compact variant (auto-applied to label-only cards): a slim separator strip
+   with icon + label on one row, spread evenly across the content width. */
+main > .section:has(.cards-reasons.compact) {
+  padding: 1.25rem 0;
+}
+
+.cards-reasons.compact > ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem 2rem;
+  margin: 0;
+}
+
+.cards-reasons.compact > ul > li {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cards-reasons.compact .cards-reasons-card-icon svg,
+.cards-reasons.compact .cards-reasons-card-icon img {
+  width: 18px;
+  height: 18px;
+}
+
+.cards-reasons.compact .cards-reasons-card-body p {
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+@media (width >= 600px) {
+  .cards-reasons.compact > ul {
+    justify-content: space-between;
+  }
+}

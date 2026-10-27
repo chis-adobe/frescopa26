@@ -53,6 +53,14 @@ export default function decorate(block) {
     }
     ul.append(li);
   });
+  // Label-only cards (no heading, one short line each) render as a compact
+  // single-row separator strip: icon and label side by side.
+  const bodies = [...ul.querySelectorAll('.cards-reasons-card-body')];
+  if (bodies.length && bodies.every((b) => !b.querySelector('h1, h2, h3, h4, h5, h6')
+    && b.textContent.trim().length <= 40)) {
+    block.classList.add('compact');
+  }
+
   ul.querySelectorAll('picture > img').forEach((img) => {
     const optimizedPic = createOptimizedPicture(img.src, img.alt, false, [{ width: '120' }]);
     img.closest('picture').replaceWith(optimizedPic);

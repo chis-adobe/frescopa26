@@ -483,6 +483,25 @@ main .section.dark .default-content-wrapper p:has(a) a:last-child:hover {
 }
 /* stylelint-enable no-descending-specificity */
 
+/* Centered intro: heading + lead stacked and centered above the section's blocks */
+main .section.centered > .default-content-wrapper {
+  text-align: center;
+}
+
+main .section.centered > .default-content-wrapper > :is(h1, h2, h3) {
+  margin-bottom: 0.5rem;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+main .section.centered > .default-content-wrapper > p {
+  max-width: 60ch;
+  margin-inline: auto;
+}
+
+main .section.centered > .default-content-wrapper + div {
+  margin-top: 3rem;
+}
+
 /* Feed section head: eyebrow (terracotta rule), heading, and an intro
    paragraph laid out to match the source. */
 main .section.feed .default-content-wrapper {
